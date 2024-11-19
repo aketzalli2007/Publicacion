@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Aketzalli Cuevas">
+    <meta name="description" content="Curriculum vitae">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Termos</title>
+    
+</head>
+<body>
+    
+    <div class="nav">
+        <div class="logo">
+            <h2><a href="#">Logo<span>.</span></a></h2>
+        </div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="tarj.html">Tarjetas</a></li>
+                <li><a href="llav.html">Llaves</a></li>
+                <li><a href="pren.html">Prendas</a></li>
+                <li><a href="mates.html">Material Escolar</a></li>
+                <li><a href="ape.html">Aparatos Electrónicos</a></li>
+                <li><a href="car.html">Carteras</a></li>
+                <li><a href="ter.html">Termos</a></li>
+                <li><a href="dpers.html">D. Personales</a></li>
+                <li><a href="otr.html">Otros</a></li>
+            </ul>
+        </div>
+    </div>
+
+   
+    <div class="title">Termos</div>
+
+    
+    <div class="container">
+        <div class="buttons">
+            <a href="#" class="btn btn-1" id="publicarBtn">Publicar</a>
+        </div>
+
+        
+        <div id="contenedorFormulario" class="oculto">
+            <div class="form-container">
+               
+                <div class="upload-box" id="uploadBox">
+                    <input type="file" id="fileInput" accept="image/*">
+                    <p>Arrastra una imagen aquí o haz clic para seleccionar</p>
+                    <img id="preview" src="#" alt="Vista previa">
+                </div>
+
+           
+                <div class="description-box">
+                    <textarea placeholder="Escribe aquí tu descripción..."></textarea>
+                </div>
+            </div>
+
+            <button class="btn-listo" id="listoBtn">Listo</button>
+
+           
+            <div class="message" id="message">Publicación finalizada</div>
+        </div>
+    </div>
+
+    <script>
+        // Mostrar formulario y botón "Listo"
+        document.getElementById('publicarBtn').addEventListener('click', function(event) {
+            event.preventDefault();
+            const contenedorFormulario = document.getElementById('contenedorFormulario');
+            const listoBtn = document.getElementById('listoBtn');
+            contenedorFormulario.classList.remove('oculto');
+            listoBtn.style.display = 'block';
+        });
+
+        // Vista previa de la imagen cargada
+        const fileInput = document.getElementById('fileInput');
+        const preview = document.getElementById('preview');
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Acción del botón "Listo"
+        document.getElementById('listoBtn').addEventListener('click', () => {
+            const message = document.getElementById('message');
+            message.style.display = 'block';
+            setTimeout(() => {
+                message.style.display = 'none';
+            }, 3000); // Ocultar mensaje después de 3 segundos
+        });
+    </script>
+</body>
+</html>
