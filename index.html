@@ -6,15 +6,15 @@
     <meta name="description" content="Curriculum vitae">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
-    <title>Publicación</title>
-    
+    <link rel="stylesheet" href="./menu.css">
+    <title>Publicar</title>
 </head>
 <body>
-    
     <div class="nav">
         <div class="logo">
             <h2><a href="#">Logo<span>.</span></a></h2>
         </div>
+        
         <div class="nav-links">
             <ul>
                 <li><a href="tarj.html">Tarjetas</a></li>
@@ -26,45 +26,61 @@
                 <li><a href="ter.html">Termos</a></li>
                 <li><a href="dpers.html">D. Personales</a></li>
                 <li><a href="otr.html">Otros</a></li>
+                
+            </ul>
+        </div>
+       
+        <button class="btn-3 menu-right" id="menuButton">
+            <span class="icon">
+                <svg viewBox="0 0 175 80" width="40" height="40">
+                    <rect width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+                    <rect y="30" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+                    <rect y="60" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+                </svg>
+            </span>
+            <span class="text">MENU</span>
+        </button>
+
+        <div class="menu-options" id="menuDropdown">
+            <ul>
+                <li><a href="uwu.html">Visión Y Misión</a></li>
+                <li><a href="tarj.html">Perfil</a></li>
+                <li><a href="busq.html">Busqueda</a></li>
+                <li><a href="index.html">Publicar</a></li>
             </ul>
         </div>
     </div>
 
-   
-    <div class="title"></div>
-
-    
     <div class="container">
         <div class="buttons">
             <a href="#" class="btn btn-1" id="publicarBtn">Publicar</a>
         </div>
 
-        
         <div id="contenedorFormulario" class="oculto">
             <div class="form-container">
-               
                 <div class="upload-box" id="uploadBox">
                     <input type="file" id="fileInput" accept="image/*">
                     <p>Arrastra una imagen aquí o haz clic para seleccionar</p>
                     <img id="preview" src="#" alt="Vista previa">
                 </div>
-
-           
                 <div class="description-box">
                     <textarea placeholder="Escribe aquí tu descripción..."></textarea>
                 </div>
             </div>
-
             <button class="btn-listo" id="listoBtn">Listo</button>
-
-           
             <div class="message" id="message">Publicación finalizada</div>
         </div>
     </div>
 
     <script>
-        // Mostrar formulario y botón "Listo"
-        document.getElementById('publicarBtn').addEventListener('click', function(event) {
+       
+        document.getElementById('menuButton').addEventListener('click', function () {
+            const menuDropdown = document.getElementById('menuDropdown');
+            menuDropdown.style.display = menuDropdown.style.display === 'block' ? 'none' : 'block';
+        });
+
+       
+        document.getElementById('publicarBtn').addEventListener('click', function (event) {
             event.preventDefault();
             const contenedorFormulario = document.getElementById('contenedorFormulario');
             const listoBtn = document.getElementById('listoBtn');
@@ -72,7 +88,6 @@
             listoBtn.style.display = 'block';
         });
 
-        /
         const fileInput = document.getElementById('fileInput');
         const preview = document.getElementById('preview');
         fileInput.addEventListener('change', (event) => {
@@ -87,13 +102,12 @@
             }
         });
 
-        
         document.getElementById('listoBtn').addEventListener('click', () => {
             const message = document.getElementById('message');
             message.style.display = 'block';
             setTimeout(() => {
                 message.style.display = 'none';
-            }, 3000); 
+            }, 3000);
         });
     </script>
 </body>
